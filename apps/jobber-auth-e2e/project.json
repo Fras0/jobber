@@ -1,0 +1,24 @@
+{
+  "name": "jobber-auth-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "implicitDependencies": [
+    "jobber-auth"
+  ],
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/jest:jest",
+      "outputs": [
+        "{workspaceRoot}/coverage/{e2eProjectRoot}"
+      ],
+      "options": {
+        "jestConfig": "apps/jobber-auth-e2e/jest.config.cts",
+        "passWithNoTests": true
+      },
+      "dependsOn": [
+        "jobber-auth:build",
+        "jobber-auth:serve"
+      ]
+    }
+  }
+}
