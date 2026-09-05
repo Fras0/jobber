@@ -6,6 +6,6 @@ module.exports = {
     '^.+\\.[tj]s$': ['ts-jest', { tsconfig: '<rootDir>/tsconfig.spec.json' }]
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  transformIgnorePatterns: ['node_modules/(?!(@nestjs/jwt)/)'],
+  transformIgnorePatterns: ['node_modules/(?!(@nestjs/jwt)/)', 'node_modules/(?!(@nestjs/jwt|@nestjs/passport)/)'],
   coverageDirectory: '../../coverage/apps/jobber-auth'
 };
