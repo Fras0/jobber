@@ -7,7 +7,8 @@
   "targets": {
     "build": {
       "dependsOn": [
-        "generate-types"
+        "generate-prisma",
+        "generate-ts-proto"
       ],
       "executor": "nx:run-commands",
       "options": {
@@ -81,26 +82,33 @@
     },
     "test": {
       "dependsOn": [
-        "generate-types"
+        "generate-prisma"
       ],
       "options": {
         "passWithNoTests": true
       }
     },
-    "generate-types": {
+    "generate-prisma": {
       "command": "prisma generate",
       "outputs": [
         "{projectRoot}/src/prisma/generated"
       ],
       "options": {
-        "cwd": "apps/jobber-auth"
-      }
+        "cwd": "{projectRoot}",
+        "input": [
+          "prisma/schema.prisma"
+        ]
+      },
+      "cache": true
     },
     "migrate-prisma": {
       "command": "prisma migrate dev",
       "options": {
-        "cwd": "apps/jobber-auth"
+        "cwd": "{projectRoot}"
       }
+    },
+    "generate-ts-proto": {
+      "command": "nx generate-ts-proto"
     }
   }
 }
