@@ -3,7 +3,10 @@
   "defaultBase": "master",
   "analytics": false,
   "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
     "production": [
       "default",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
@@ -14,7 +17,9 @@
       "!{projectRoot}/.eslintrc.json",
       "!{projectRoot}/eslint.config.mjs"
     ],
-    "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
+    "sharedGlobals": [
+      "{workspaceRoot}/.github/workflows/ci.yml"
+    ]
   },
   "plugins": [
     {
@@ -33,14 +38,37 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/jobber-auth-e2e/**/*", "apps/jobber-jobs-e2e/**/*"]
+      "exclude": [
+        "apps/jobber-auth-e2e/**/*",
+        "apps/jobber-jobs-e2e/**/*"
+      ]
     },
     {
       "plugin": "@nx/eslint/plugin",
       "options": {
         "targetName": "lint"
       },
-      "exclude": ["apps/jobber-auth/src/prisma/generated/**/*"]
+      "exclude": [
+        "apps/jobber-auth/src/prisma/generated/**/*"
+      ]
     }
-  ]
+  ],
+  "targetDefaults": {
+    "build": {
+      "inputs": [
+        "{projectRoot}/**/*",
+        "{workspaceRoot}/lib/**/*",
+        "{workspaceRoot}/proto/*"
+      ],
+      "options": {
+        "assets": [
+          {
+            "glob": "*.proto",
+            "input": "proto",
+            "output": "proto"
+          }
+        ]
+      }
+    }
+  }
 }
