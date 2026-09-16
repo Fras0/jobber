@@ -9,7 +9,7 @@ import { AppModule } from './app/app.module';
 import { ConfigService } from '@nestjs/config';
 import cookieParser from 'cookie-parser'
 import { GrpcOptions, Transport } from '@nestjs/microservices'
-import { AUTH_PACKAGE_NAME } from './../../../types/proto/auth'
+import { AUTH_PACKAGE_NAME } from '@jobber/proto/auth'
 import { join } from 'path';
 
 async function bootstrap() {

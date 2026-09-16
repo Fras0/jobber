@@ -1,6 +1,6 @@
 import { CanActivate, ExecutionContext, Inject, Injectable, Logger, OnModuleInit } from "@nestjs/common";
 import { catchError, map, Observable, of } from "rxjs";
-import { AUTH_PACKAGE_NAME, AUTH_SERVICE_NAME, AuthServiceClient } from './../../../../../types/proto/auth'
+import { AUTH_PACKAGE_NAME, AUTH_SERVICE_NAME, AuthServiceClient } from '@jobber/proto/auth'
 import { ClientGrpc } from "@nestjs/microservices";
 import { GqlExecutionContext } from "@nestjs/graphql";
 

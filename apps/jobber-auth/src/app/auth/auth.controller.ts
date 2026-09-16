@@ -1,5 +1,5 @@
 import { Controller, UseGuards } from "@nestjs/common";
-import { AuthenticateRequest, AuthServiceController, AuthServiceControllerMethods, User } from "../../../../../types/proto/auth";
+import { AuthenticateRequest, AuthServiceController, AuthServiceControllerMethods, User } from "@jobber/proto/auth";
 import { Observable } from "rxjs";
 import { JwtAuthGuard } from "./guards/jwt-auth.guard";
 import { UsersService } from "../users/users.service";
